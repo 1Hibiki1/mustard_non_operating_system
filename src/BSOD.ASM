@@ -5,7 +5,8 @@
 
 KPANIC_MSG  DB 'KERNEL PANIC', 13,
             DB 13, 13, 13, 13, 'mustard is behind u', 13,
-            DB 13, 13, 13, 13, 'sus', 0
+            DB 13, 13, 13, 13, 'sus',
+            DB 13, 13, 13, 13, 'who is mustard', 0
 
 BSOD:
     MOV BH, 0x1F
