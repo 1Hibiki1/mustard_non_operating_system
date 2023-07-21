@@ -9,3 +9,5 @@ To run this u need to have these available from the command line:
 - nasm
 
 To build and run, type `make run`.
+
+Enjoy.
