@@ -1,0 +1,58 @@
+%ifndef _STR_ASM
+%define _STR_ASM
+
+
+STRCMP:
+    PUSH BX
+    PUSH SI
+    PUSH DI
+STRCMP_LOOP:
+    LODSB
+    MOV BL, [DI]
+    CMP AL, 0
+    JE STRCMP_CHK
+    INC DI
+    CMP BL, AL
+    JE STRCMP_LOOP
+    MOV AL, 1
+    JMP STRCMP_END
+STRCMP_CHK:
+    CMP BL, 0
+    JE STRCMP_END
+    MOV AL, 1
+STRCMP_END:
+    POP DI
+    POP SI
+    POP BX
+    RET
+
+
+STRNCMP:
+    PUSH BX
+    PUSH CX
+    PUSH SI
+    PUSH DI
+    MOV CX, 0
+STRNCMP_LOOP:
+    LODSB
+    MOV BL, [DI]
+    CMP AL, 0
+    JE STRNCMP_CHK
+    INC DI
+    CMP BL, AL
+    JE STRNCMP_LOOP
+    MOV AL, 1
+    JMP STRNCMP_END
+STRNCMP_CHK:
+    CMP BL, 0
+    JE STRNCMP_END
+    MOV AL, 1
+STRNCMP_END:
+    POP DI
+    POP SI
+    POP CX
+    POP BX
+    RET
+
+
+%endif  ; _STR_ASM
